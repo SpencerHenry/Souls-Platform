@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7202560097841657541}
   - component: {fileID: 4242399611498907799}
-  - component: {fileID: 7495804141238851325}
+  - component: {fileID: 4302773412069482459}
   - component: {fileID: 5914514716418705513}
   - component: {fileID: 118162741675137812}
   - component: {fileID: 6054779797651366684}
@@ -88,8 +88,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &7495804141238851325
-CircleCollider2D:
+--- !u!61 &4302773412069482459
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -102,8 +102,18 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!50 &5914514716418705513
 Rigidbody2D:
   serializedVersion: 4
@@ -166,10 +176,11 @@ MonoBehaviour:
   timeSinceLastDodgeStart: 0
   currentlyInDodgeMovement: 0
   walkSpeed: 4
-  airWalkSpeed: 2
+  airWalkSpeed: 3
   walkAccel: 15
-  airWalkAccel: 4
+  airWalkAccel: 7.5
   instantWalk: 0
   instantAirWalk: 0
   instantWalkTurnaround: 1
   instantAirWalkTurnaround: 0
+  grounded: 0

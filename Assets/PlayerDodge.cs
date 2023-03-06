@@ -10,6 +10,8 @@ public class PlayerDodge : MonoBehaviour
     public bool walkEnabled = true;
     public float dodgeCooldownLimit = 0.5f;
     public float dodgeCooldownRemaining = 0f;
+    public int dodgesInAirLimit = 1;
+    public int dodgesInAirPerformed = 0;
     public bool debugShowDodgeFrames = false;
     public float intangibilityWindow = 0.25f;
     public float dodgeInitialSpeed = 12f;
@@ -20,13 +22,14 @@ public class PlayerDodge : MonoBehaviour
     public float timeSinceLastDodgeStart = 0f;
     public bool currentlyInDodgeMovement = false;
     public float walkSpeed = 4f;
-    public float airWalkSpeed = 2f;
+    public float airWalkSpeed = 3f;
     public float walkAccel = 15f;
-    public float airWalkAccel = 4f;
+    public float airWalkAccel = 7.5f;
     public bool instantWalk = false;
     public bool instantAirWalk = false;
     public bool instantWalkTurnaround = true;
     public bool instantAirWalkTurnaround = false;
+    public bool grounded = false;
     private IntangibilityController _intangibilityController;
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody2D;
@@ -38,12 +41,24 @@ public class PlayerDodge : MonoBehaviour
     }
     private void Update()
     {
+        CheckGround();
+        if(grounded)
+        {
+            dodgesInAirPerformed = 0;
+        }
         if(Input.GetKeyDown(KeyCode.LeftShift) && dodgeCooldownRemaining <= 0f)
         {
-            _intangibilityController.BecomeTemporarilyIntangible(intangibilityWindow);
-            dodgeCooldownRemaining = dodgeCooldownLimit;
-            timeSinceLastDodgeStart = 0f;
-            DodgeStartMovement();
+            if(grounded || dodgesInAirPerformed < dodgesInAirLimit)
+            {
+                _intangibilityController.BecomeTemporarilyIntangible(intangibilityWindow);
+                dodgeCooldownRemaining = dodgeCooldownLimit;
+                timeSinceLastDodgeStart = 0f;
+                if(!grounded)
+                {
+                    dodgesInAirPerformed += 1;
+                }
+                DodgeStartMovement();
+            }
         }
         RunWalkMovement();
         RunDodgeSpeedBleed();
@@ -54,11 +69,27 @@ public class PlayerDodge : MonoBehaviour
             VisualizeIntangibility();
         }
     }
+    private void CheckGround()
+    {
+        grounded = false;
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position + Vector3.down * 1f,
+            new Vector2(0.99f, 0.01f), 0f);
+        foreach(Collider2D collider in colliders)
+        {
+            if(collider.transform.IsChildOf(transform) || transform.IsChildOf(collider.transform))
+            {
+                continue;
+            }
+            else
+            {
+                grounded = true;
+            }
+        }
+    }
     private void RunWalkMovement()
     {
         float inputX = Input.GetAxisRaw("Horizontal");
         float velocityX = _rigidbody2D.velocity.x;
-        bool grounded = true; // TODO GROUND DETECTION
         if(grounded)
         {
             if(!Mathf.Approximately(inputX, 0f) && velocityX * Mathf.Sign(inputX) < inputX * walkSpeed * Mathf.Sign(inputX))
