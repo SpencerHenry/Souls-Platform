@@ -153,7 +153,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dodgeEnabled: 1
+  walkEnabled: 1
   dodgeCooldownLimit: 0.5
   dodgeCooldownRemaining: 0
   debugShowDodgeFrames: 1
-  intangibilityWindow: 0.3
+  intangibilityWindow: 0.25
+  dodgeInitialSpeed: 12
+  dodgeSpeedBleedDelay: 0.25
+  dodgeSpeedBleedDuration: 0.25
+  dodgeSpeedBleedRate: 40
+  dodgeSpeedBleedCap: 3
+  timeSinceLastDodgeStart: 0
+  currentlyInDodgeMovement: 0
+  walkSpeed: 4
+  airWalkSpeed: 2
+  walkAccel: 15
+  airWalkAccel: 4
+  instantWalk: 0
+  instantAirWalk: 0
+  instantWalkTurnaround: 1
+  instantAirWalkTurnaround: 0
