@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Platform
   layers:
   - Default
   - TransparentFX
@@ -40,4 +41,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2326676773
+    locked: 0
+  - name: Floor
+    uniqueID: 3508693313
+    locked: 0
+  - name: Buildings
+    uniqueID: 2634114287
+    locked: 0
+  - name: Character
+    uniqueID: 1843837687
+    locked: 0
+  - name: OverCharacter
+    uniqueID: 3061189083
     locked: 0
