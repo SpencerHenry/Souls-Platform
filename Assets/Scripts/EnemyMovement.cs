@@ -7,12 +7,10 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] float moveSpeed = 1f;
 
     Rigidbody2D myRigidbody;
-    BoxCollider2D myBoxColider;
 
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
-        myBoxColider = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
