@@ -15,22 +15,8 @@ public class HealthBar : MonoBehaviour
         SetSize(Health.totalHealth); // To Retain Health when switching between scenes
     }
 
-    public void Damage(float damage)
-    {
-        if((Health.totalHealth -= damage) >= 0f)
-        {
-            Health.totalHealth -= damage;
-        }
-        else
-        {
-            Health.totalHealth = 0f;
-        }
-
-        SetSize(Health.totalHealth);
-    }
-
     public void SetSize(float size)
     {
-        bar.localScale = new Vector3(size, 1f);
+        bar.localScale = new Vector3(size/100, 1f);
     }
 }
