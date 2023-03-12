@@ -3,9 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Spikes
-  - Enemy
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -13,9 +11,9 @@ TagManager:
   - 
   - Water
   - UI
-  - BackGround
-  - MidGround
-  - ForeGround
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -40,15 +38,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
-    uniqueID: 2161622267
-    locked: 0
-  - name: Midground
-    uniqueID: 999198637
-    locked: 0
-  - name: Foreground
-    uniqueID: 1550432627
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
