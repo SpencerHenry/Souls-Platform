@@ -208,7 +208,7 @@ public class PlayerDodge : MonoBehaviour
                 if ((Health.totalHealth -= 50f) > 0f)
                 {
                     PlayerTakeDamage(50f);
-                    healthBar.SetSize(health.totalHealth);
+                    healthBar.SetSize(Health.totalHealth);
                     health.text = "HP:\t\t\t\t" + Health.totalHealth;
                 }
                 else
