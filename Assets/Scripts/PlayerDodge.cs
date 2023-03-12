@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 [RequireComponent(typeof(IntangibilityController))]
 [RequireComponent(typeof(Rigidbody2D))]
@@ -30,14 +31,21 @@ public class PlayerDodge : MonoBehaviour
     public bool instantWalkTurnaround = true;
     public bool instantAirWalkTurnaround = false;
     public bool grounded = false;
+    public float health = Health.totalHealth;
+    public Text healthText;
+    public HealthBar healthBar;
     private IntangibilityController _intangibilityController;
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody2D;
+
+
     private void Start()
     {
         _intangibilityController = GetComponent<IntangibilityController>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        healthText.text = "HP:\t\t\t\t" + Health.totalHealth;
+        healthBar.SetSize(Health.totalHealth);
     }
     private void Update()
     {
@@ -185,4 +193,50 @@ public class PlayerDodge : MonoBehaviour
             _spriteRenderer.color = Color.green;
         }
     }
+    private void PlayerTakeDamage(float damage)
+    {
+        health -= damage;
+        Debug.Log(health);
+        Debug.Log(Health.totalHealth);
+    }
+
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (currentlyInDodgeMovement == false)
+        {
+            if (collision.tag == "Spikes")
+            {
+                PlayerTakeDamage(50f);
+                if ((Health.totalHealth -= 50f) > 0f)
+                {
+                    PlayerTakeDamage(50f);
+                    healthBar.SetSize(Health.totalHealth);
+                    healthText.text = "HP:\t\t\t\t" + Health.totalHealth;
+                }
+                else                
+                {
+                    Health.totalHealth = 0f;
+                    healthText.text = "BIG DEAD";
+                    healthBar.SetSize(Health.totalHealth);
+                    // PlayerDie()
+                }
+            }
+            else if (collision.tag == "Enemy")
+            {
+                //add enemy dmg
+            }
+        }  // ends here because Falling Off Map kills regardless of dodge          
+
+        if (collision.tag == "FallDetector")
+            {
+                //PlayerDie(); // Death transition->respawn?
+            }
+    }
+        
+        
+             
+        
 }
+

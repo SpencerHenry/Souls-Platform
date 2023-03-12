@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5914514716418705513}
   - component: {fileID: 118162741675137812}
   - component: {fileID: 6054779797651366684}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DodgingPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 999198637
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 0, g: 1, b: 0, a: 1}
@@ -166,6 +166,8 @@ MonoBehaviour:
   walkEnabled: 1
   dodgeCooldownLimit: 0.5
   dodgeCooldownRemaining: 0
+  dodgesInAirLimit: 1
+  dodgesInAirPerformed: 0
   debugShowDodgeFrames: 1
   intangibilityWindow: 0.25
   dodgeInitialSpeed: 12
@@ -184,3 +186,5 @@ MonoBehaviour:
   instantWalkTurnaround: 1
   instantAirWalkTurnaround: 0
   grounded: 0
+  health: 1
+  healthText: {fileID: 0}
