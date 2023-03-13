@@ -42,8 +42,8 @@ public class PlayerDodge : MonoBehaviour
         _intangibilityController = GetComponent<IntangibilityController>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        health.text = "HP:\t\t\t\t" + health.totalHealth;
-        healthBar.SetSize(health.totalHealth);
+        healthText.text = "HP:\t\t\t\t" + Health.totalHealth;
+        healthBar.SetSize(Health.totalHealth);
     }
     private void Update()
     {
@@ -209,7 +209,7 @@ public class PlayerDodge : MonoBehaviour
                 {
                     PlayerTakeDamage(50f);
                     healthBar.SetSize(Health.totalHealth);
-                    health.text = "HP:\t\t\t\t" + Health.totalHealth;
+                    healthText.text = "HP:\t\t\t\t" + Health.totalHealth;
                 }
                 else
                 {
