@@ -82,7 +82,7 @@ public class PlayerDodge : MonoBehaviour
     private void CheckGround()
     {
         grounded = false;
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position + Vector3.down * 1f,
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position + Vector3.down * 1.32f,
             new Vector2(0.99f, 0.01f), 0f);
         foreach(Collider2D collider in colliders)
         {
@@ -161,7 +161,7 @@ public class PlayerDodge : MonoBehaviour
     }
     private void RunDodgeSpeedBleed()
     {
-        _rigidbody2D.gravityScale = 2f;
+        _rigidbody2D.gravityScale = 3f;
         if(currentlyInDodgeMovement)
         {
             if(timeSinceLastDodgeStart > dodgeSpeedBleedDelay + dodgeSpeedBleedDuration)
