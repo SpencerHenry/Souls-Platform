@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6054779797651366684}
   m_Layer: 0
   m_Name: DodgingPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,8 +164,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dodgeEnabled: 1
   walkEnabled: 1
+  jumpEnabled: 1
   dodgeCooldownLimit: 0.5
   dodgeCooldownRemaining: 0
+  dodgesInAirLimit: 1
+  dodgesInAirPerformed: 0
   debugShowDodgeFrames: 1
   intangibilityWindow: 0.25
   dodgeInitialSpeed: 12
@@ -179,6 +182,8 @@ MonoBehaviour:
   airWalkSpeed: 3
   walkAccel: 15
   airWalkAccel: 7.5
+  groundTractionStopStrength: 1
+  jumpSpeed: 12
   instantWalk: 0
   instantAirWalk: 0
   instantWalkTurnaround: 1
