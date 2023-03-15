@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Platform
+  - Spikes
   layers:
   - Default
   - TransparentFX
@@ -40,4 +42,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3233633571
+    locked: 0
+  - name: OverBackground
+    uniqueID: 2606427199
+    locked: 0
+  - name: Enemy
+    uniqueID: 1840358681
+    locked: 0
+  - name: Player
+    uniqueID: 2912898265
+    locked: 0
+  - name: OverPlayer
+    uniqueID: 498287701
     locked: 0
