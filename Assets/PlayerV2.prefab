@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -9110690474558635510}
   - component: {fileID: 2306961792277319757}
   - component: {fileID: 5666517656912097421}
+  - component: {fileID: 8537470038694976345}
   m_Layer: 0
   m_Name: PlayerV2
   m_TagString: Untagged
@@ -133,7 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dodgeEnabled: 1
   walkEnabled: 1
-  upInputJumpEnabled: 1
+  jumpEnabled: 1
   dodgeCooldownLimit: 0.5
   dodgeCooldownRemaining: 0
   dodgesInAirLimit: 1
@@ -149,8 +150,8 @@ MonoBehaviour:
   currentlyInDodgeMovement: 0
   walkSpeed: 6
   airWalkSpeed: 4
-  walkAccel: 15
-  airWalkAccel: 7.5
+  walkAccel: 20
+  airWalkAccel: 10
   groundTractionStopStrength: 1
   jumpSpeed: 12
   instantWalk: 0
@@ -161,6 +162,19 @@ MonoBehaviour:
   health: 100
   healthText: {fileID: 0}
   healthBar: {fileID: 0}
+--- !u!114 &8537470038694976345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5759596071741101084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa03f0c844fe2da44b31e434832e1242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  facingRight: 1
 --- !u!1 &8239640947179237025
 GameObject:
   m_ObjectHideFlags: 0
