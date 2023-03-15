@@ -32,6 +32,7 @@ public class PlayerDodge : MonoBehaviour
     public bool instantAirWalkTurnaround = false;
     public bool grounded = false;
     public float health = Health.totalHealth;
+    public float animationInput;
     public Text healthText;
     public HealthBar healthBar;
     private IntangibilityController _intangibilityController;
@@ -95,6 +96,7 @@ public class PlayerDodge : MonoBehaviour
     private void RunWalkMovement()
     {
         float inputX = Input.GetAxisRaw("Horizontal");
+        animationInput = inputX;
         float velocityX = _rigidbody2D.velocity.x;
         if(grounded)
         {
