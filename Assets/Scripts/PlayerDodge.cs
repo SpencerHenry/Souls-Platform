@@ -86,7 +86,7 @@ public class PlayerDodge : MonoBehaviour
             new Vector2(0.99f, 0.01f), 0f);
         foreach(Collider2D collider in colliders)
         {
-            if(collider.transform.IsChildOf(transform) || transform.IsChildOf(collider.transform))
+            if(collider.transform.IsChildOf(transform) || transform.IsChildOf(collider.transform) || collider.isTrigger)
             {
                 continue;
             }
