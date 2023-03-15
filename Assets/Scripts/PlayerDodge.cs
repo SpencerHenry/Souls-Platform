@@ -9,6 +9,7 @@ public class PlayerDodge : MonoBehaviour
 {
     public bool dodgeEnabled = true;
     public bool walkEnabled = true;
+    public bool jumpEnabled = true;
     public float dodgeCooldownLimit = 0.5f;
     public float dodgeCooldownRemaining = 0f;
     public int dodgesInAirLimit = 1;
@@ -26,13 +27,14 @@ public class PlayerDodge : MonoBehaviour
     public float airWalkSpeed = 3f;
     public float walkAccel = 15f;
     public float airWalkAccel = 7.5f;
+    public float groundTractionStopStrength = 1f;
+    public float jumpSpeed = 12f;
     public bool instantWalk = false;
     public bool instantAirWalk = false;
     public bool instantWalkTurnaround = true;
     public bool instantAirWalkTurnaround = false;
     public bool grounded = false;
     public float health = Health.totalHealth;
-    public float animationInput;
     public Text healthText;
     public HealthBar healthBar;
     private IntangibilityController _intangibilityController;
@@ -67,6 +69,12 @@ public class PlayerDodge : MonoBehaviour
                 DodgeStartMovement();
             }
         }
+        if(jumpEnabled && grounded && !currentlyInDodgeMovement && Input.GetKeyDown(KeyCode.Space))
+        {
+            float newYVel = Mathf.Max(_rigidbody2D.velocity.y, jumpSpeed);
+            _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, newYVel);
+        }
+        RunGroundTraction();
         RunWalkMovement();
         RunDodgeSpeedBleed();
         dodgeCooldownRemaining -= Time.deltaTime;
@@ -93,10 +101,22 @@ public class PlayerDodge : MonoBehaviour
             }
         }
     }
+    private void RunGroundTraction()
+    {
+        if(Mathf.Approximately(0f, Input.GetAxisRaw("Horizontal")))
+        {
+            if(!currentlyInDodgeMovement)
+            {
+                if(grounded)
+                {
+                    _rigidbody2D.velocity = Vector2.Lerp(_rigidbody2D.velocity, Vector2.zero, Time.deltaTime * groundTractionStopStrength);
+                }
+            }
+        }
+    }
     private void RunWalkMovement()
     {
         float inputX = Input.GetAxisRaw("Horizontal");
-        animationInput = inputX;
         float velocityX = _rigidbody2D.velocity.x;
         if(grounded)
         {
@@ -146,7 +166,7 @@ public class PlayerDodge : MonoBehaviour
     }
     private void RunDodgeSpeedBleed()
     {
-        _rigidbody2D.gravityScale = 1f;
+        _rigidbody2D.gravityScale = 2f;
         if(currentlyInDodgeMovement)
         {
             if(timeSinceLastDodgeStart > dodgeSpeedBleedDelay + dodgeSpeedBleedDuration)
