@@ -34,9 +34,6 @@ public class PlayerDodge : MonoBehaviour
     public bool instantWalkTurnaround = true;
     public bool instantAirWalkTurnaround = false;
     public bool grounded = false;
-    public float health = Health.totalHealth;
-    public Text healthText;
-    public HealthBar healthBar;
     private IntangibilityController _intangibilityController;
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody2D;
@@ -45,8 +42,6 @@ public class PlayerDodge : MonoBehaviour
         _intangibilityController = GetComponent<IntangibilityController>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        healthText.text = "HP:\t\t\t\t" + Health.totalHealth;
-        healthBar.SetSize(Health.totalHealth);
     }
     private void Update()
     {
@@ -211,45 +206,6 @@ public class PlayerDodge : MonoBehaviour
         else
         {
             _spriteRenderer.color = Color.green;
-        }
-    }
-
-    private void PlayerTakeDamage(float damage)
-    {
-        health -= damage;
-        Debug.Log(health);
-        Debug.Log(Health.totalHealth);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(_intangibilityController.intangible == false)
-        {
-            if (collision.tag == "Spikes")
-            {
-                if ((Health.totalHealth -= 50f) > 0f)
-                {
-                    PlayerTakeDamage(50f);
-                    healthBar.SetSize(Health.totalHealth);
-                    healthText.text = "HP:\t\t\t\t" + Health.totalHealth;
-                }
-                else
-                {
-                    Health.totalHealth = 0f;
-                    healthText.text = "DEAD" + Health.totalHealth;
-                    healthBar.SetSize(Health.totalHealth);
-                    // PlayerDie()
-                }
-            }
-            else if(collision.tag == "Enemy")
-            {
-                // enemy dmg
-            }
-        } // end here because falling off map kills regardless of dodge
-
-        if(collision.tag == "FallDetector")
-        {
-            // PlayerDie() -- Death transition -> respawn
         }
     }
 }
