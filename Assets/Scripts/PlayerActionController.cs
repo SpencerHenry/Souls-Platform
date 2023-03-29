@@ -19,7 +19,18 @@ public class PlayerActionController : MonoBehaviour
     }
     private void Update()
     {
-        float inputX = Input.GetAxisRaw("Horizontal");
+        setAnimationSpeed();
+        directionCheck();  
+    }
+    private void FlipFacing()
+    {
+        facingRight = !facingRight;
+        Vector2 currentScale = transform.localScale;
+        currentScale.x *= -1;
+        transform.localScale = currentScale;
+    }
+    private void setAnimationSpeed()
+    {
         if(_playerDodge.grounded)
         {
             _animator.SetFloat("Speed", Mathf.Abs(inputX));
@@ -28,16 +39,13 @@ public class PlayerActionController : MonoBehaviour
         {
             _animator.SetFloat("Speed", 0f);
         }
+    }
+    private void directionCheck()
+    {
+        float inputX = Input.GetAxisRaw("Horizontal");
         if((inputX > 0 && !facingRight) || (inputX < 0 && facingRight))
         {
             FlipFacing();
         }
-    }
-    private void FlipFacing()
-    {
-        facingRight = !facingRight;
-        Vector2 currentScale = transform.localScale;
-        currentScale.x *= -1;
-        transform.localScale = currentScale;
     }
 }
