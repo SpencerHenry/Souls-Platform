@@ -20,7 +20,7 @@ public class PlayerActionController : MonoBehaviour
     private void Update()
     {
         setAnimationSpeed();
-        directionCheck();  
+        changeDirection();  
     }
     private void FlipFacing()
     {
@@ -40,7 +40,7 @@ public class PlayerActionController : MonoBehaviour
             _animator.SetFloat("Speed", 0f);
         }
     }
-    private void directionCheck()
+    private void changeDirection()
     {
         float inputX = Input.GetAxisRaw("Horizontal");
         if((inputX > 0 && !facingRight) || (inputX < 0 && facingRight))
