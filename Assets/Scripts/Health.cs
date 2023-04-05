@@ -40,8 +40,7 @@ public class Health : MonoBehaviour
         if(totalHealth <= 0f)
         {
             totalHealth = 0f;
-            FindObjectOfType<Respawn>().RespawnPlayer();
-            totalHealth = 100f;
+            //do something to die
         }
     }
 }
