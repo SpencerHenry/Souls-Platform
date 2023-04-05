@@ -33,6 +33,7 @@ public class PlayerActionController : MonoBehaviour
     {
         if(_playerDodge.grounded)
         {
+            float inputX = Input.GetAxisRaw("Horizontal");
             _animator.SetFloat("Speed", Mathf.Abs(inputX));
         }
         else
