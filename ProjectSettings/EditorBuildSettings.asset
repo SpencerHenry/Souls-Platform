@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/OutsideTowerLevel.unity
     guid: 37f03f056fd84144cbe8f2d8e994f76b
   - enabled: 1
+    path: Assets/Scenes/OutsideTowerBossFight.unity
+    guid: 2d09cea7c712d124f9f34964bb682bf9
+  - enabled: 1
     path: Assets/Scenes/InsideTowerFirstLevel.unity
     guid: 361630a9b99bcd04585aec7cfce7ba91
   m_configObjects: {}
