@@ -16,6 +16,7 @@ public class jumpBehaviour : StateMachineBehaviour
     {
         playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().position;
         timer = Random.Range(minTime, maxTime);
+        animator.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 7.5f, ForceMode2D.Impulse);
 
     }
 
