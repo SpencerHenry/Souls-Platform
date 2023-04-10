@@ -13,20 +13,20 @@ public class FirstBossFight : MonoBehaviour
     public float jumpForce;
     private float moveHorizontal;
     private float moveVertical;
-    private bool facingRight = true;
+    public bool facingRight = false;
     // Start is called before the first frame update
     void Start()
     {
         rb2D = gameObject.GetComponent<Rigidbody2D>();
+        animate = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        bossHealthBar.value = health;
-
-        moveHorizontal = Input.GetAxisRaw("Horizontal");
-        moveVertical = Input.GetAxisRaw("Vertical");
+        float myX = transform.position.x;
+        float playerX = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>().position.x;
+        moveHorizontal = playerX - myX;
 
         if(moveHorizontal >  0 && !facingRight) {
             flip();
