@@ -8,7 +8,6 @@ public class Health : MonoBehaviour
 {
     public static float totalHealth = 100f;
     public static float maximumHealth = 100f;
-    
     private IntangibilityController _intangibilityController;
     private void Start()
     {
@@ -46,7 +45,7 @@ public class Health : MonoBehaviour
         if(totalHealth <= 0f)
         {
             totalHealth = 0f;
-//            FindObjectOfType<Respawn>().RespawnPlayer();
+            //FindObjectOfType<Respawn>().RespawnPlayer();
             totalHealth = 100f;
         }
     }
