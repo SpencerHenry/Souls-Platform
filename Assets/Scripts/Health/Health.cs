@@ -8,7 +8,6 @@ public class Health : MonoBehaviour
 {
     public static float totalHealth = 100f;
     public static float maximumHealth = 100f;
-    //public HealthBar healthBar;
     private IntangibilityController _intangibilityController;
     private void Start()
     {
@@ -22,6 +21,12 @@ public class Health : MonoBehaviour
         {
             AttemptToDamage(30f);
         }
+
+        if(colliderTag == "FirstBoss")
+        {
+            AttemptToDamage(20f);
+        }
+
         if(colliderTag == "FallDetector")
         {
             TakeDamage(Health.totalHealth);//dead

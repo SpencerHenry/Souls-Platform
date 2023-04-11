@@ -13,11 +13,12 @@ public class HealthBar : MonoBehaviour
     {
         bar = GetComponent<RectTransform>();
         SetSize(Health.totalHealth); // To Retain Health when switching between scenes
+        
     }
 
     private void Update()
     {
-        SetSize(Health.totalHealth);
+        SetSize(Health.totalHealth);   
     }
 
     public void SetSize(float size)
