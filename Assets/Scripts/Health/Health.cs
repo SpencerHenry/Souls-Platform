@@ -8,7 +8,7 @@ public class Health : MonoBehaviour
 {
     public static float totalHealth = 100f;
     public static float maximumHealth = 100f;
-    //public HealthBar healthBar;
+    
     private IntangibilityController _intangibilityController;
     private void Start()
     {

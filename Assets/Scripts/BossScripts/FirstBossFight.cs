@@ -5,9 +5,6 @@ using UnityEngine.UI;
 
 public class FirstBossFight : MonoBehaviour
 {
-    public int health;
-    public Slider bossHealthBar;
-
     private Rigidbody2D rb2D;
     private Animator animate;
     public float jumpForce;
