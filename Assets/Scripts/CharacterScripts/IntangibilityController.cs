@@ -46,6 +46,7 @@ public class IntangibilityController : MonoBehaviour
     public void BecomeIntangible()
     {
         intangible = true;
+        temporarilyIntangible = false;
     }
     public void BecomeNotIntangible()
     {

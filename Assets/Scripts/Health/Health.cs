@@ -28,7 +28,7 @@ public class Health : MonoBehaviour
                 Vector2 sourcePoint = col.transform.position;
                 Vector2 delta = myPos - sourcePoint;
                 Vector2 knockbackVector = new Vector2(Mathf.Sign(delta.x) * 4f, 5f);
-                playerActionController.Knockback(knockbackVector, false);
+                playerActionController.Knockback(knockbackVector, true, 0.1f);
             }
             AttemptToDamage(20f);
         }
@@ -70,6 +70,7 @@ public class Health : MonoBehaviour
         {
             playerActionController.paralyzed = true;
         }
+        _intangibilityController.BecomeIntangible();
         LevelLoader loader = FindObjectOfType<LevelLoader>();
         if(loader == null)
         {

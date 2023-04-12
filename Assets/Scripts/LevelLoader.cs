@@ -34,6 +34,11 @@ public class LevelLoader : MonoBehaviour
     {
         if(col.gameObject.tag == "Player")
         {
+            PlayerActionController action = col.GetComponent<PlayerActionController>();
+            if(action != null)
+            {
+                action.Paralyze();
+            }
             LoadNextLevel();
         }
     }
