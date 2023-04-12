@@ -19,14 +19,10 @@ public class BossHealth : MonoBehaviour
     }
 
     private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.L))
-        {
-            DamgeBoss(25f);
-        }            
+    {        
     }
 
-    private void DamgeBoss(float dmg)
+    public void DamageBoss(float dmg)
     {
         totBossHealth -= dmg;
 

@@ -634,8 +634,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1f2af8d7c5e2094cb424a46aa01f90e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
-  bossHealthBar: {fileID: 0}
   jumpForce: 60
   facingRight: 0
 --- !u!114 &447549427
@@ -686,7 +684,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 293.8133, y: 13.655487}
+  m_AnchoredPosition: {x: 397.2, y: 13.655487}
   m_SizeDelta: {x: 615.9758, y: 18.326}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &464458233
@@ -1989,7 +1987,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 221561333517917430, guid: d2d5235e2024bb949a0f522ff5b1b0e6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.480354
+      value: 24.480381
       objectReference: {fileID: 0}
     - target: {fileID: 221561333517917430, guid: d2d5235e2024bb949a0f522ff5b1b0e6, type: 3}
       propertyPath: m_LocalPosition.y

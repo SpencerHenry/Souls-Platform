@@ -5,17 +5,20 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(PlayerDodge))]
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(PlayerCombat))]
 public class PlayerActionController : MonoBehaviour
 {
     public bool facingRight = true;
     private Rigidbody2D _rigidbody2D;
     private Animator _animator;
     private PlayerDodge _playerDodge;
+    private PlayerCombat _playerCombat;
     private void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _playerDodge = GetComponent<PlayerDodge>();
+        _playerCombat = GetComponent<PlayerCombat>();
     }
     private void Update()
     {
