@@ -9,6 +9,7 @@ using UnityEngine;
 public class PlayerActionController : MonoBehaviour
 {
     public bool facingRight = true;
+    public bool paralyzed = false;
     private Rigidbody2D _rigidbody2D;
     private Animator _animator;
     private PlayerDodge _playerDodge;
@@ -22,6 +23,10 @@ public class PlayerActionController : MonoBehaviour
     }
     private void Update()
     {
+        if(paralyzed)
+        {
+            return;
+        }
         setAnimationSpeed();
         changeDirection();
         if(Input.GetMouseButtonDown(0) &&
