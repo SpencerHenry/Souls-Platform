@@ -37,6 +37,12 @@ public class PlayerActionController : MonoBehaviour
             _animator.SetTrigger("Attack");
         }
     }
+    public void Knockback(Vector2 velocityChange, bool stun)
+    {
+        //stun not implemented
+        _rigidbody2D.velocity = Vector2.zero;
+        _rigidbody2D.velocity += velocityChange;
+    }
     private void FlipFacing()
     {
         facingRight = !facingRight;
