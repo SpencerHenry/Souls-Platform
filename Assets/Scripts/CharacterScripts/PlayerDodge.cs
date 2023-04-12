@@ -34,6 +34,8 @@ public class PlayerDodge : MonoBehaviour
     public bool instantWalkTurnaround = true;
     public bool instantAirWalkTurnaround = false;
     public bool grounded = false;
+    public float feetWidthInLocalScale = 0.3f;
+    public Transform feetPosition;
     private IntangibilityController _intangibilityController;
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody2D;
@@ -82,8 +84,17 @@ public class PlayerDodge : MonoBehaviour
     private void CheckGround()
     {
         grounded = false;
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position + Vector3.down * 1.32f,
-            new Vector2(0.99f, 0.01f), 0f);
+        Collider2D[] colliders;
+        if(feetPosition == null)
+        {
+            colliders = Physics2D.OverlapBoxAll(transform.position + Vector3.down * 1.32f,
+                new Vector2(0.99f, 0.01f), 0f);
+        }
+        else
+        {
+            colliders = Physics2D.OverlapBoxAll(feetPosition.position,
+                new Vector2(feetWidthInLocalScale * transform.lossyScale.x, 0.01f), 0f);
+        }
         foreach(Collider2D collider in colliders)
         {
             if(collider.transform.IsChildOf(transform) || transform.IsChildOf(collider.transform) || collider.isTrigger)
