@@ -63,7 +63,7 @@ public class PlayerDodge : MonoBehaviour
         {
             if(dodgeEnabled && !_playerActionController.paralyzed && (grounded || dodgesInAirPerformed < dodgesInAirLimit))
             {
-                _intangibilityController.BecomeTemporarilyIntangible(intangibilityWindow);
+                _intangibilityController.BecomeTemporarilyIntangible(intangibilityWindow, false);
                 dodgeCooldownRemaining = dodgeCooldownLimit;
                 timeSinceLastDodgeStart = 0f;
                 if(!grounded)

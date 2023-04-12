@@ -37,6 +37,7 @@ public class Health : MonoBehaviour
     {
         if(!_intangibilityController.intangible)
         {
+            _intangibilityController.BecomeTemporarilyIntangible(0.5f, true);
             TakeDamage(damageAmount);
         }
     }
