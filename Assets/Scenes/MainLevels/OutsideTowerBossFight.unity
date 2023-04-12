@@ -634,8 +634,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1f2af8d7c5e2094cb424a46aa01f90e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
-  bossHealthBar: {fileID: 0}
   jumpForce: 60
   facingRight: 0
 --- !u!114 &447549427
@@ -3082,3 +3080,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3deb39dfa3462614aaa6f0b0df48085a, type: 3}
+--- !u!1 &4375791801073317114 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8078853819715954007, guid: 3deb39dfa3462614aaa6f0b0df48085a, type: 3}
+  m_PrefabInstance: {fileID: 4375791801073317113}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4375791801073317115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4375791801073317114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f54b36daaea9d9f409b3ef876b70d479, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
