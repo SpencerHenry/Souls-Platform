@@ -45,6 +45,7 @@ public class Health : MonoBehaviour
         if(totalHealth <= 0f)
         {
             totalHealth = 0f;
+            transform.position = Checkpoints.currCheckPoint;
             //FindObjectOfType<Respawn>().RespawnPlayer();
             totalHealth = 100f;
         }
