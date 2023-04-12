@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3335162291230195712
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4213738462977869852}
+  m_Layer: 0
+  m_Name: Feet Pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4213738462977869852
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3335162291230195712}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.08, y: -0.44, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2030826727267355304}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8078853819715954007
 GameObject:
   m_ObjectHideFlags: 0
@@ -37,6 +68,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9212764058482240388}
+  - {fileID: 4213738462977869852}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -101,7 +133,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 8078853819715954007}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: ab0c8b9bf7fc02f4180d71442971e33c, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -171,28 +203,30 @@ MonoBehaviour:
   jumpEnabled: 1
   dodgeCooldownLimit: 0.5
   dodgeCooldownRemaining: 0
-  dodgesInAirLimit: 1
+  dodgesInAirLimit: 2
   dodgesInAirPerformed: 0
   debugShowDodgeFrames: 1
   intangibilityWindow: 0.25
-  dodgeInitialSpeed: 12
+  dodgeInitialSpeed: 15
   dodgeSpeedBleedDelay: 0.25
   dodgeSpeedBleedDuration: 0.25
-  dodgeSpeedBleedRate: 40
-  dodgeSpeedBleedCap: 3
+  dodgeSpeedBleedRate: 60
+  dodgeSpeedBleedCap: 2
   timeSinceLastDodgeStart: 0
   currentlyInDodgeMovement: 0
   walkSpeed: 10
   airWalkSpeed: 10
   walkAccel: 25
   airWalkAccel: 15
-  groundTractionStopStrength: 1
+  groundTractionStopStrength: 8
   jumpSpeed: 15
   instantWalk: 0
   instantAirWalk: 0
   instantWalkTurnaround: 1
   instantAirWalkTurnaround: 0
   grounded: 0
+  feetWidthInLocalScale: 0.3
+  feetPosition: {fileID: 4213738462977869852}
 --- !u!95 &9212764060139064524
 Animator:
   serializedVersion: 5
