@@ -14,17 +14,22 @@ public class Health : MonoBehaviour
     {
         _intangibilityController = GetComponent<IntangibilityController>();
     }
-    private void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerStay2D(Collider2D col)
     {
         //Some inanimate objects do not have their own scripts to attack the player. Here, the player checks for damage itself.
         string colliderTag = col.gameObject.tag;
         if(colliderTag == "Spikes" || colliderTag == "Enemy")
         {
-            AttemptToDamage(30f);
-        }
-
-        if(colliderTag == "FirstBoss")
-        {
+            PlayerActionController playerActionController = GetComponent<PlayerActionController>();
+            if(playerActionController != null && !_intangibilityController.intangible) // Knockback when hit
+            {
+                Vector2 myPos = transform.position;
+                //Vector2 sourcePoint = col.ClosestPoint(myPos);
+                Vector2 sourcePoint = col.transform.position;
+                Vector2 delta = myPos - sourcePoint;
+                Vector2 knockbackVector = new Vector2(Mathf.Sign(delta.x) * 4f, 5f);
+                playerActionController.Knockback(knockbackVector, true, 0.1f);
+            }
             AttemptToDamage(20f);
         }
 
@@ -37,6 +42,7 @@ public class Health : MonoBehaviour
     {
         if(!_intangibilityController.intangible)
         {
+            _intangibilityController.BecomeTemporarilyIntangible(0.75f, true);
             TakeDamage(damageAmount);
         }
     }
@@ -64,6 +70,7 @@ public class Health : MonoBehaviour
         {
             playerActionController.paralyzed = true;
         }
+        _intangibilityController.BecomeIntangible();
         LevelLoader loader = FindObjectOfType<LevelLoader>();
         if(loader == null)
         {

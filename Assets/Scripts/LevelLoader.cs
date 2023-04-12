@@ -9,11 +9,36 @@ public class LevelLoader : MonoBehaviour
     public Animator  transition;    
 
     public float transitionTime = 1f;
+    public bool waitForBoss = false;
+    public bool customPositionEnabled = false;
+    public Vector3 customRespawnPosition = Vector3.zero;
+    public bool customSceneEnabled = false;
+    public int customSceneNumber = 0;
 
     public void LoadNextLevel()
     {
-        Checkpoints.checkpointSet = false;
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex +1));
+    }
+
+    public void Activate()
+    {
+        if(customPositionEnabled)
+        {
+            Checkpoints.checkpointSet = true;
+            Checkpoints.currCheckPoint = customRespawnPosition;
+        }
+        else
+        {
+            Checkpoints.checkpointSet = false;
+        }
+        if(customSceneEnabled)
+        {
+            StartCoroutine(LoadLevel(customSceneNumber));
+        }
+        else
+        {
+            LoadNextLevel();
+        }
     }
 
     public void Reload()
@@ -34,7 +59,20 @@ public class LevelLoader : MonoBehaviour
     {
         if(col.gameObject.tag == "Player")
         {
-            LoadNextLevel();
+            if(waitForBoss)
+            {
+                FirstBossFight boss = FindObjectOfType<FirstBossFight>();
+                if(boss != null)
+                {
+                    return;
+                }
+            }
+            PlayerActionController action = col.GetComponent<PlayerActionController>();
+            if(action != null)
+            {
+                action.Paralyze();
+            }
+            Activate();
         }
     }
 }

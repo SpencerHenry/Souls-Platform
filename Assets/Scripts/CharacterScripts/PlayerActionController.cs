@@ -10,6 +10,8 @@ public class PlayerActionController : MonoBehaviour
 {
     public bool facingRight = true;
     public bool paralyzed = false;
+    private bool temporarilyParalyzed = false;
+    private float temporarilyParalyzedSeconds = 0f;
     private Rigidbody2D _rigidbody2D;
     private Animator _animator;
     private PlayerDodge _playerDodge;
@@ -23,6 +25,15 @@ public class PlayerActionController : MonoBehaviour
     }
     private void Update()
     {
+        if(temporarilyParalyzed)
+        {
+            temporarilyParalyzedSeconds -= Time.deltaTime;
+            if(temporarilyParalyzedSeconds <= 0f)
+            {
+                temporarilyParalyzed = false;
+                paralyzed = false;
+            }
+        }
         if(paralyzed || PauseMenu.gameIsPaused)
         {
             return;
@@ -36,6 +47,39 @@ public class PlayerActionController : MonoBehaviour
             _playerCombat.Attack();
             _animator.SetTrigger("Attack");
         }
+    }
+    public void Knockback(Vector2 velocityChange, bool stun = false, float stunTime = 0f)
+    {
+        _rigidbody2D.velocity = Vector2.zero;
+        _rigidbody2D.velocity += velocityChange;
+        if(stun)
+        {
+            TemporarilyParalyze(stunTime);
+        }
+    }
+    public void Paralyze()
+    {
+        paralyzed = true;
+        temporarilyParalyzed = false;
+    }
+    public void Unparalyze()
+    {
+        paralyzed = false;
+        temporarilyParalyzed = false;
+    }
+    public void TemporarilyParalyze(float seconds)
+    {
+        if(paralyzed)
+        {
+            if(temporarilyParalyzed && seconds > temporarilyParalyzedSeconds)
+            {
+                temporarilyParalyzedSeconds = seconds;
+            }
+            return;
+        }
+        paralyzed = true;
+        temporarilyParalyzed = true;
+        temporarilyParalyzedSeconds = seconds;
     }
     private void FlipFacing()
     {
