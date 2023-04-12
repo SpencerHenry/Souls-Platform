@@ -8,15 +8,10 @@ public class PlayerCombat : MonoBehaviour
     public float swordAttackRange = 0.5f;
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            Attack();
-        }    
     }
 
-    void Attack()
+    public void Attack()
     {
-        Debug.Log("swing");
         //Detect range
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(swordAttackPoint.position, swordAttackRange);
         //Damage enemy

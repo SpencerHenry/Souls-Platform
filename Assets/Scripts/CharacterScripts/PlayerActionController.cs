@@ -23,7 +23,14 @@ public class PlayerActionController : MonoBehaviour
     private void Update()
     {
         setAnimationSpeed();
-        changeDirection();  
+        changeDirection();
+        if(Input.GetMouseButtonDown(0) &&
+           (_animator.GetCurrentAnimatorStateInfo(0).IsName("CharacterRunAnimation") ||
+            _animator.GetCurrentAnimatorStateInfo(0).IsName("CharacterIdleAnimation")))
+        {
+            _playerCombat.Attack();
+            _animator.SetTrigger("Attack");
+        }
     }
     private void FlipFacing()
     {
