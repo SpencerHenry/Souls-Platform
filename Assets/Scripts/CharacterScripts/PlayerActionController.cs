@@ -13,6 +13,8 @@ public class PlayerActionController : MonoBehaviour
     private Animator _animator;
     private PlayerDodge _playerDodge;
     private PlayerCombat _playerCombat;
+    public bool paralyzed = false;
+    
     private void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
@@ -22,6 +24,12 @@ public class PlayerActionController : MonoBehaviour
     }
     private void Update()
     {
+
+        if(paralyzed || PauseMenu.gameIsPaused)
+        {
+            return;
+        }
+        
         setAnimationSpeed();
         changeDirection();
         if(Input.GetMouseButtonDown(0) &&
