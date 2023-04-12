@@ -6,9 +6,18 @@ using UnityEngine;
 public class Checkpoints : MonoBehaviour
 {
    public static Vector3 currCheckPoint;
+   public static bool checkpointSet = false;
    private void Start()
    {
-        currCheckPoint = transform.position;
+       if(checkpointSet)
+       {
+           transform.position = currCheckPoint;
+       }
+       else
+       {
+           checkpointSet = true;
+           currCheckPoint = transform.position;
+       }
    }
 
    private void OnTriggerEnter2D(Collider2D col)
@@ -16,6 +25,7 @@ public class Checkpoints : MonoBehaviour
         if(col.tag == "CheckPoint")
         {
             currCheckPoint = transform.position;
+            checkpointSet = true;
         }
    }
 }

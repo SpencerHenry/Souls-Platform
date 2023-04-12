@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 [RequireComponent(typeof(IntangibilityController))]
 public class Health : MonoBehaviour
 {
@@ -45,9 +46,33 @@ public class Health : MonoBehaviour
         if(totalHealth <= 0f)
         {
             totalHealth = 0f;
-            transform.position = Checkpoints.currCheckPoint;
+            //transform.position = Checkpoints.currCheckPoint;
             //FindObjectOfType<Respawn>().RespawnPlayer();
             totalHealth = 100f;
+            Die();
+        }
+    }
+    private void Die()
+    {
+        Animator animator = GetComponent<Animator>();
+        if(animator != null)
+        { 
+            animator.SetTrigger("Die");
+        }
+        PlayerActionController playerActionController = GetComponent<PlayerActionController>();
+        if(playerActionController != null)
+        {
+            playerActionController.paralyzed = true;
+        }
+        LevelLoader loader = FindObjectOfType<LevelLoader>();
+        if(loader == null)
+        {
+            //if there is no LevelLoader for some reason, we can reload but there will be no fade animation
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        else
+        {
+            loader.Reload();
         }
     }
 }

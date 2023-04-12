@@ -12,7 +12,13 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadNextLevel()
     {
+        Checkpoints.checkpointSet = false;
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex +1));
+    }
+
+    public void Reload()
+    {
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex));
     }
 
     IEnumerator LoadLevel(int levelIndex)
@@ -20,7 +26,6 @@ public class LevelLoader : MonoBehaviour
         transition.SetTrigger("Start");
 
         yield return new WaitForSeconds(transitionTime);
-
         SceneManager.LoadScene(levelIndex);
 
     }

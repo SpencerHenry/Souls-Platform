@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 [RequireComponent(typeof(IntangibilityController))]
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(PlayerActionController))]
 public class PlayerDodge : MonoBehaviour
 {
     public bool dodgeEnabled = true;
@@ -39,14 +40,20 @@ public class PlayerDodge : MonoBehaviour
     private IntangibilityController _intangibilityController;
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rigidbody2D;
+    private PlayerActionController _playerActionController;
     private void Start()
     {
         _intangibilityController = GetComponent<IntangibilityController>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _playerActionController = GetComponent<PlayerActionController>();
     }
     private void Update()
     {
+        if(PauseMenu.gameIsPaused)
+        {
+            return;
+        }
         CheckGround();
         if(grounded)
         {
@@ -54,7 +61,7 @@ public class PlayerDodge : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.LeftShift) && dodgeCooldownRemaining <= 0f)
         {
-            if(grounded || dodgesInAirPerformed < dodgesInAirLimit)
+            if(dodgeEnabled && !_playerActionController.paralyzed && (grounded || dodgesInAirPerformed < dodgesInAirLimit))
             {
                 _intangibilityController.BecomeTemporarilyIntangible(intangibilityWindow);
                 dodgeCooldownRemaining = dodgeCooldownLimit;
@@ -66,13 +73,17 @@ public class PlayerDodge : MonoBehaviour
                 DodgeStartMovement();
             }
         }
-        if(jumpEnabled && grounded && !currentlyInDodgeMovement && Input.GetKeyDown(KeyCode.Space))
+        if(jumpEnabled && !_playerActionController.paralyzed && grounded &&
+           !currentlyInDodgeMovement && Input.GetKeyDown(KeyCode.Space))
         {
             float newYVel = Mathf.Max(_rigidbody2D.velocity.y, jumpSpeed);
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, newYVel);
         }
         RunGroundTraction();
-        RunWalkMovement();
+        if(walkEnabled && !_playerActionController.paralyzed)
+        {
+            RunWalkMovement();
+        }
         RunDodgeSpeedBleed();
         dodgeCooldownRemaining -= Time.deltaTime;
         timeSinceLastDodgeStart += Time.deltaTime;

@@ -41,6 +41,8 @@ public class PauseMenu : MonoBehaviour
     public void loadMenu()
     {
         Time.timeScale = 1f;
+        gameIsPaused = false;
+        Checkpoints.checkpointSet = false;
         Debug.Log("Loading Menu...");
         SceneManager.LoadScene(0);
     }
