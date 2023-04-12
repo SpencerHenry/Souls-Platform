@@ -192,7 +192,7 @@ MonoBehaviour:
   dodgesInAirLimit: 2
   dodgesInAirPerformed: 0
   debugShowDodgeFrames: 0
-  intangibilityWindow: 0.25
+  intangibilityWindow: 0.3
   dodgeInitialSpeed: 15
   dodgeSpeedBleedDelay: 0.25
   dodgeSpeedBleedDuration: 0.25
