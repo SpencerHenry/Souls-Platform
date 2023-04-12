@@ -9,6 +9,7 @@ public class LevelLoader : MonoBehaviour
     public Animator  transition;    
 
     public float transitionTime = 1f;
+    public bool waitForBoss = false;
 
     public void LoadNextLevel()
     {
@@ -34,6 +35,14 @@ public class LevelLoader : MonoBehaviour
     {
         if(col.gameObject.tag == "Player")
         {
+            if(waitForBoss)
+            {
+                FirstBossFight boss = FindObjectOfType<FirstBossFight>();
+                if(boss != null)
+                {
+                    return;
+                }
+            }
             PlayerActionController action = col.GetComponent<PlayerActionController>();
             if(action != null)
             {

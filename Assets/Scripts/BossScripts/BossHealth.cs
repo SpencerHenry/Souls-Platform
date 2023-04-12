@@ -28,7 +28,8 @@ public class BossHealth : MonoBehaviour
 
         if(totBossHealth <= 0f)
         {
-           totBossHealth = 100f; // Delete this add death 
+            totBossHealth = 0f;
+            Destroy(gameObject);
         }
     }
 }
