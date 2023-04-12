@@ -50,6 +50,10 @@ public class PlayerDodge : MonoBehaviour
     }
     private void Update()
     {
+        if(PauseMenu.gameIsPaused)
+        {
+            return;
+        }
         CheckGround();
         if(grounded)
         {

@@ -80,6 +80,7 @@ GameObject:
   - component: {fileID: 9212764060139064525}
   - component: {fileID: 4375791802724777941}
   - component: {fileID: 5262640622829257347}
+  - component: {fileID: 8982008502409539803}
   m_Layer: 0
   m_Name: Demo2Character
   m_TagString: Player
@@ -293,6 +294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   facingRight: 1
+  paralyzed: 0
 --- !u!114 &4375791802724777941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,6 +321,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swordAttackPoint: {fileID: 6428409379445478617}
   swordAttackRange: 1.5
+--- !u!114 &8982008502409539803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8078853819715954007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f54b36daaea9d9f409b3ef876b70d479, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9212764058482240389
 GameObject:
   m_ObjectHideFlags: 0

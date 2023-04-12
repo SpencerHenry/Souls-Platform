@@ -23,7 +23,7 @@ public class PlayerActionController : MonoBehaviour
     }
     private void Update()
     {
-        if(paralyzed)
+        if(paralyzed || PauseMenu.gameIsPaused)
         {
             return;
         }

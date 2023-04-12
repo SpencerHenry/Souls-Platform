@@ -879,7 +879,6 @@ GameObject:
   - component: {fileID: 782507648}
   - component: {fileID: 782507647}
   - component: {fileID: 782507646}
-  - component: {fileID: 782507650}
   m_Layer: 0
   m_Name: CapsuleCheckpoint
   m_TagString: CheckPoint
@@ -1014,18 +1013,6 @@ RectTransform:
   m_AnchoredPosition: {x: -56.98, y: 1.66}
   m_SizeDelta: {x: 2.0373, y: 2.4462}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &782507650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 782507645}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f54b36daaea9d9f409b3ef876b70d479, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &822135724
 GameObject:
   m_ObjectHideFlags: 0
@@ -1057,7 +1044,7 @@ Transform:
   - {fileID: 1346316347}
   - {fileID: 1847534953}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &832856002
 PrefabInstance:
@@ -1301,7 +1288,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4568216402373487470, guid: fa890594f92ab04439f90e2b92a419aa, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4568216402373487470, guid: fa890594f92ab04439f90e2b92a419aa, type: 3}
       propertyPath: m_AnchorMax.x
