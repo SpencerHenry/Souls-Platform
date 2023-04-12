@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Platform
   - Spikes
+  - CheckPoint
   layers:
   - Default
   - TransparentFX
