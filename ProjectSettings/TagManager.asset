@@ -7,6 +7,7 @@ TagManager:
   - Platform
   - Spikes
   - CheckPoint
+  - Win
   layers:
   - Default
   - TransparentFX
