@@ -8,6 +8,8 @@ TagManager:
   - Spikes
   - CheckPoint
   - Win
+  - Orb
+  - Bat
   layers:
   - Default
   - TransparentFX
