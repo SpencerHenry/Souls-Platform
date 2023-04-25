@@ -6,6 +6,7 @@ public class Cast : MonoBehaviour
 {
     public Transform castPoint;
     public GameObject projectilePrefab;
+    public bool projectileActive = false;
  
 
     // Update is called once per frame
@@ -13,15 +14,8 @@ public class Cast : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(1))
         {
-            Instantiate(projectilePrefab,castPoint.position,transform.rotation);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D col) 
-    {
-        if(col.tag == "Bat")
-        {
-            Destroy(projectilePrefab);
+            projectileActive = true;
+            Instantiate(projectilePrefab,castPoint.position,transform.rotation);  
         }
     }
 }

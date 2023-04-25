@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &641912416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 641912417}
+  m_Layer: 0
+  m_Name: CastPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &641912417
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641912416}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.144, y: -0.04, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2030826727267355304}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3335162291230195712
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,6 +111,7 @@ GameObject:
   - component: {fileID: 4375791802724777941}
   - component: {fileID: 5262640622829257347}
   - component: {fileID: 8982008502409539803}
+  - component: {fileID: 1390441110}
   m_Layer: 0
   m_Name: Demo2Character
   m_TagString: Player
@@ -102,6 +134,7 @@ Transform:
   - {fileID: 9212764058482240388}
   - {fileID: 4213738462977869852}
   - {fileID: 6428409379445478617}
+  - {fileID: 641912417}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -285,6 +318,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f54b36daaea9d9f409b3ef876b70d479, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WINTEXT: {fileID: 0}
+--- !u!114 &1390441110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8078853819715954007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b21465ccdc184584ca21095166005187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  castPoint: {fileID: 641912417}
+  projectilePrefab: {fileID: 6178387250790288919, guid: fdd554855459fe0498887663fac0e4f6, type: 3}
+  projectileActive: 0
 --- !u!1 &9212764058482240389
 GameObject:
   m_ObjectHideFlags: 0

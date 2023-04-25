@@ -4,25 +4,33 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public float enemyHealth;
-    private GameObject enemy;
+    public static float enemyHealth;
+    public GameObject enemy;
     // Start is called before the first frame update
     void Start()
     {
         enemy = GetComponent<GameObject>();
         enemyHealth = 100f;
     }
+    void Update()
+    {
+        if(enemyHealth <= 0f) 
+        {
+            Debug.Log("Enemy Died");
+            Destroy(gameObject);
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D col) 
     {
+        Debug.Log("BatHit");
         if(col.tag == "Orb")
         {
-        enemyHealth -= 60f;
+            enemyHealth -= 60f;
         }
-
-        if(enemyHealth <= 0)
+        else if(col.tag =="Sword") 
         {
-            Destroy(enemy);
+            enemyHealth -= 100f;
         }
     }
 }

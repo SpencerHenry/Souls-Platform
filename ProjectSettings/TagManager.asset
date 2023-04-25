@@ -9,6 +9,7 @@ TagManager:
   - CheckPoint
   - Win
   - Orb
+  - Bat
   layers:
   - Default
   - TransparentFX
