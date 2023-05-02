@@ -31,9 +31,9 @@ public class EnemyMovement : MonoBehaviour
         return transform.localScale.x > Mathf.Epsilon;
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D col)
     {
-        string colliderTag = collision.gameObject.tag;
+        string colliderTag = col.gameObject.tag;
         
         if(colliderTag == "Platform")
         {
