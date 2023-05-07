@@ -4,40 +4,39 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 1f;
+   private Rigidbody2D myRigidbody;
 
-    Rigidbody2D myRigidbody;
+   private Vector3 startPosition;
+   public Vector3 endPosition;
 
-    void Start()
-    {
+   private Vector3 targetPosition;
+
+   public float movementSpeed;
+
+   void Awake()
+   {
         myRigidbody = GetComponent<Rigidbody2D>();
-    }
+        startPosition = transform.position;
+        targetPosition = endPosition;
+   }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(IsFacingRight())
-        {
-            myRigidbody.velocity = new Vector2(moveSpeed, 0f);
-        }
-        else
-        {
-            myRigidbody.velocity = new Vector2(-moveSpeed, 0f);
-        }
-    }
+   void FixedUpdate()
+   {
 
-    private bool IsFacingRight()
-    {
-        return transform.localScale.x > Mathf.Epsilon;
-    }
+        Vector3 currentPosition = transform.position;
 
-    private void OnTriggerExit2D(Collider2D col)
-    {
-        string colliderTag = col.gameObject.tag;
-        
-        if(colliderTag == "Platform")
+        if(currentPosition == endPosition)
         {
-            transform.localScale = new Vector2(-(Mathf.Sign(myRigidbody.velocity.x)), transform.localScale.y);
+            targetPosition = startPosition;
+            Debug.Log("Reached end, turning around");
         }
-    }
+        else if(currentPosition == startPosition)
+        {
+            targetPosition = endPosition;
+            Debug.Log("At start, moving towards target location");
+        }
+
+        Vector3 targetDirection = (targetPosition - currentPosition).normalized;
+        myRigidbody.MovePosition(currentPosition + targetDirection * movementSpeed * Time.deltaTime);
+   }
 }
