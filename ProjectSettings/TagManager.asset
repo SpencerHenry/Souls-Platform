@@ -10,6 +10,7 @@ TagManager:
   - Win
   - Orb
   - Bat
+  - Enemy
   layers:
   - Default
   - TransparentFX
