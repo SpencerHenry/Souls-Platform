@@ -21,12 +21,15 @@ EditorBuildSettings:
     path: Assets/Scenes/MainLevels/InsideTowerFirstLevel.unity
     guid: 361630a9b99bcd04585aec7cfce7ba91
   - enabled: 1
+    path: Assets/Scenes/MainLevels/second_level/second_level_1.unity
+    guid: 8ef096ac8c7255647a765fc05753e174
+  - enabled: 1
+    path: Assets/Scenes/MainLevels/second_level/second_level_2.unity
+    guid: 3bbf2cac62ff71445a1d6d5b78639565
+  - enabled: 1
     path: Assets/Scenes/MainLevels/FinalBossRoom.unity
     guid: 60a14a9926bb9a14bafb0150ef7564d6
   - enabled: 1
     path: Assets/Scenes/MainLevels/EndLevelOutside.unity
     guid: 2ffe8e8d857e05845bab14250cbf9e6a
-  - enabled: 1
-    path: Assets/Scenes/MainLevels/second_level/second_level_1.unity
-    guid: 8ef096ac8c7255647a765fc05753e174
   m_configObjects: {}

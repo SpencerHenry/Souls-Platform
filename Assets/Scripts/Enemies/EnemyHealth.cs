@@ -13,7 +13,7 @@ public class EnemyHealth : MonoBehaviour
     void Start()
     {
         enemy = GetComponent<GameObject>();
-        enemyHealth = 100f;
+        //enemyHealth = 100f;
     }
     void Update()
     {
