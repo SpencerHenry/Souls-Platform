@@ -6,6 +6,9 @@ public class EnemyHealth : MonoBehaviour
 {
     public float enemyHealth;
     public GameObject enemy;
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,9 +31,17 @@ public class EnemyHealth : MonoBehaviour
         {
             enemyHealth -= 60f;
         }
-        else if(col.tag =="Sword") 
+    }
+    
+   public void DamageEnemy(float dmg)
+    {
+        enemyHealth = enemyHealth - dmg;
+
+        if(enemyHealth <= 0)
         {
-            enemyHealth -= 100f;
+            Debug.Log("Enemy Died");
+            Destroy(gameObject);
         }
+
     }
 }
