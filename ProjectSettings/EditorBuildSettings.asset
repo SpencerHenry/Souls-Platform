@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainLevels/InsideTowerFirstLevel.unity
     guid: 361630a9b99bcd04585aec7cfce7ba91
+  - enabled: 1
+    path: Assets/Scenes/MainLevels/FinalBossRoom.unity
+    guid: 60a14a9926bb9a14bafb0150ef7564d6
+  - enabled: 1
+    path: Assets/Scenes/MainLevels/EndLevelOutside.unity
+    guid: 2ffe8e8d857e05845bab14250cbf9e6a
   m_configObjects: {}
