@@ -21,6 +21,7 @@ public class BossHealth : MonoBehaviour
     private void Start()
     {
         totBossHealth = 100f;
+        
     }
 
     private void Update()

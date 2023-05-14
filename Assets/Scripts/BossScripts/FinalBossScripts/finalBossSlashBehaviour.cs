@@ -30,7 +30,7 @@ public class finalBossSlashBehaviour : StateMachineBehaviour
             timer -= Time.deltaTime;
         }
 
-        Vector2 target = new Vector2(playerPos.x, animator.transform.position.y);
+        Vector2 target = new Vector2(playerPos.x, playerPos.y);
         animator.transform.position = Vector2.MoveTowards(animator.transform.position, target, speed * Time.deltaTime);
         
 
