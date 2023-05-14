@@ -18,7 +18,7 @@ public class Health : MonoBehaviour
     {
         //Some inanimate objects do not have their own scripts to attack the player. Here, the player checks for damage itself.
         string colliderTag = col.gameObject.tag;
-        if(colliderTag == "Spikes" || colliderTag == "Enemy")
+        if(colliderTag == "Spikes" || colliderTag == "Enemy" || colliderTag == "Bat")
         {
             PlayerActionController playerActionController = GetComponent<PlayerActionController>();
             if(playerActionController != null && !_intangibilityController.intangible) // Knockback when hit
