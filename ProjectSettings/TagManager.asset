@@ -12,6 +12,7 @@ TagManager:
   - Bat
   - Enemy
   - FinalBoss
+  - NoDamage
   layers:
   - Default
   - TransparentFX
