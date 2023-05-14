@@ -24,7 +24,7 @@ public class PlayerCombat : MonoBehaviour
             BossHealth bossHealth = enemy.GetComponent<BossHealth>();
             if(bossHealth != null)
             {
-                bossHealth.DamageBoss(10f);
+                bossHealth.DamageBoss(5f);
                 return;
             }
         }

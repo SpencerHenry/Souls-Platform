@@ -20,7 +20,15 @@ public class BossHealth : MonoBehaviour
 
     private void Start()
     {
-        totBossHealth = 100f;
+        string healthTag = gameObject.tag;
+        if(healthTag == "NoDamage" ) {
+
+        } else {
+            totBossHealth = 100f;
+        }
+    
+        
+        
     }
 
     private void Update()
@@ -34,7 +42,15 @@ public class BossHealth : MonoBehaviour
         if(totBossHealth <= 0f)
         {
             totBossHealth = 0f;
-            Destroy(gameObject);
+            //did this to fix a bug with having two BossHealth Scripts on an object. 
+            //I need two on an object in order to not take damage from the boss but still be able to damage it
+            GameObject go = GameObject.Find ("FinalBoss");
+            if (go){
+                Destroy (go.gameObject);
+            
+            } else {
+                Destroy(gameObject);
+            }
         }
     }
 }
