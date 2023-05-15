@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public static float enemyHealth;
+    public float enemyHealth;
     public GameObject enemy;
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
         enemy = GetComponent<GameObject>();
-        enemyHealth = 100f;
+        //enemyHealth = 100f;
     }
     void Update()
     {
@@ -28,9 +31,17 @@ public class EnemyHealth : MonoBehaviour
         {
             enemyHealth -= 60f;
         }
-        else if(col.tag =="Sword") 
+    }
+    
+   public void DamageEnemy(float dmg)
+    {
+        enemyHealth = enemyHealth - dmg;
+
+        if(enemyHealth <= 0)
         {
-            enemyHealth -= 100f;
+            Debug.Log("Enemy Died");
+            Destroy(gameObject);
         }
+
     }
 }

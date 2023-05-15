@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6701325427785834706}
   - component: {fileID: 6701325427785834705}
   - component: {fileID: 6701325427785834717}
+  - component: {fileID: 296931840}
   m_Layer: 0
   m_Name: bat_enemy
   m_TagString: Bat
@@ -107,7 +108,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 5
+  m_Constraints: 7
 --- !u!60 &6701325427785834705
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -244,4 +245,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d6835a23402b774c9ca9994a2438458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyHealth: 0
   enemy: {fileID: 6701325427785834704}
+--- !u!95 &296931840
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6701325427785834704}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0fcee13e268403048b105ec779737795, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

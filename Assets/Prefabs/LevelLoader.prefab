@@ -136,6 +136,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transition: {fileID: 5653600812581386357}
   transitionTime: 1
+  waitForBoss: 0
+  customPositionEnabled: 0
+  customRespawnPosition: {x: 0, y: 0, z: 0}
+  customSceneEnabled: 0
+  customSceneNumber: 0
 --- !u!1 &4604658876288241468
 GameObject:
   m_ObjectHideFlags: 0
