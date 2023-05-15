@@ -11,6 +11,8 @@ TagManager:
   - Orb
   - Bat
   - Enemy
+  - FinalBoss
+  - NoDamage
   layers:
   - Default
   - TransparentFX
